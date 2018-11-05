@@ -1,0 +1,29 @@
+{
+  "name": "chat",
+  "version": "0.0.1",
+  "description": "electron ex.",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "webpack -d --watch",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "electron": "^3.0.7",
+    "electron-debug": "^2.0.0",
+    "webpack": "^4.25.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "author": "tiannan",
+  "license": "MIT"
+}
