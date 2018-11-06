@@ -3,7 +3,7 @@ const electron = require("electron");
 const { app, BrowserWindow } = electron;
 const path = require( "path" );
 const url = require( "url" );
-const globalShortcut = electron.globalShortcut;
+// const globalShortcut = electron.globalShortcut;
 const { default: installExtension, REACT_DEVELOPER_TOOLS } = require( "electron-devtools-installer" );
 
 require("electron-reload")(__dirname, {
@@ -24,7 +24,7 @@ function createWindow() {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 600, height: 300
+    width: 800, height: 800
   });
 
   // and load the index.html of the app.
@@ -46,9 +46,9 @@ function createWindow() {
   });
 
   /// 创建一个刷新按钮
-  globalShortcut.register('CommandOrControl + R', () => {
-    mainWindow.reload();
-  });
+  // globalShortcut.register('CommandOrControl + R', () => {
+  //   mainWindow.reload();
+  // });
 }
 
 // This method will be called when Electron has finished
