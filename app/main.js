@@ -1,7 +1,14 @@
 
-const { app, BrowserWindow } = require( "electron" ),
-  path = require( "path" ),
-  url = require( "url" );
+const electron = require("electron");
+const { app, BrowserWindow } = electron;
+const path = require( "path" );
+const url = require( "url" );
+const globalShortcut = electron.globalShortcut;
+
+require("electron-reload")(__dirname, {
+  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+  hardResetMethod: 'exit'
+});
 
 // const { default: installExtension, REACT_DEVELOPER_TOOLS } = require( "electron-devtools-installer" );
 
@@ -38,6 +45,11 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  /// 创建一个刷新按钮
+  globalShortcut.register('CommandOrControl + R', () => {
+    mainWindow.reload();
   });
 }
 
