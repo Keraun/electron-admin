@@ -7,6 +7,7 @@ module.exports = {
   target: "electron-renderer",
   output: {
     path: join(__dirname, "app/build"),
+    publicPath: 'app/',
     filename: "render.js"
   },
   module: {

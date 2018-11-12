@@ -8,12 +8,12 @@ export default class App extends React.PureComponent {
   constructor () {
     super()
     this.state = {
-      primary: 'Click Here!!!'
+      primary: 'Click Here'
     }
   }
 
   clickAction = () => {
-    let primary = (this.state.primary === '立即购买' ? '购买成功' : '立即购买')
+    let primary = (this.state.primary === '立即购买' ? '购买成功!' : '立即购买')
     this.setState({primary})
   }
 

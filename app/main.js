@@ -3,13 +3,9 @@ const electron = require("electron");
 const { app, BrowserWindow } = electron;
 const path = require( "path" );
 const url = require( "url" );
-// const globalShortcut = electron.globalShortcut;
-const { default: installExtension, REACT_DEVELOPER_TOOLS } = require( "electron-devtools-installer" );
+const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = require( "electron-devtools-installer" );
 
-require("electron-reload")(__dirname, {
-  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
-  hardResetMethod: 'exit'
-});
+require("electron-reload")(__dirname);
 
 // Keep a global reference of the window object, if you don"t, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -17,14 +13,15 @@ let mainWindow;
 
 function createWindow() {
 
-
-  installExtension(REACT_DEVELOPER_TOOLS)
-    .then((name) => console.log(`Added Extension: ${name}`))
+  // !这段东西，在发布的时候要注释掉
+  installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS])
+    .then((name) => console.log(`插件安装成功: ${name}`))
     .catch((err) => console.log("An error occurred: ", err));
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800, height: 800
+    width: 800, height: 800,
+    icon: path.join(__dirname, './assets/app-icon/Icon-76.png')
   });
 
   // and load the index.html of the app.
@@ -32,7 +29,9 @@ function createWindow() {
     pathname: path.join( __dirname, "./index.html" ),
     protocol: "file:",
     slashes: true
-  }) );
+  }));
+
+  // mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();

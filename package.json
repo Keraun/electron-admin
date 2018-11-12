@@ -6,14 +6,20 @@
   "scripts": {
     "start": "electron .",
     "dev": "webpack -d --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "pack": "electron-packager . --overwrite"
+  },
+  "build": {
+    "appId": "com.tiannan.admin"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.83.0"
+    "semantic-ui-react": "^0.83.0",
+    "electron-debug": "^2.0.0",
+    "electron-devtools-installer": "^2.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -23,8 +29,7 @@
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "electron": "^3.0.7",
-    "electron-debug": "^2.0.0",
-    "electron-devtools-installer": "^2.2.4",
+    "electron-packager": "^12.2.0",
     "electron-reload": "^1.2.5",
     "file-loader": "^2.0.0",
     "style-loader": "^0.23.1",
