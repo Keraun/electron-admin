@@ -1,7 +1,11 @@
+/* eslint-disable no-console */
 const electron = require('electron')
-const { app, BrowserWindow } = electron
+const { app, BrowserWindow, session } = electron
 const path = require('path')
 const url = require('url')
+
+// !提供HMR功能，在Production环境下得删除
+// ?是否可以优化
 const {
   default: installExtension,
   REACT_DEVELOPER_TOOLS,
@@ -19,6 +23,16 @@ function createWindow() {
   installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS])
     .then(name => console.log(`插件安装成功: ${name}`))
     .catch(err => console.log('An error occurred: ', err))
+
+  // 设置安全策略
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': ["default-src 'none'"]
+      }
+    })
+  })
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -40,10 +54,8 @@ function createWindow() {
     })
   )
 
-  // mainWindow.loadURL(`file://${__dirname}/index.html`);
-
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -52,11 +64,6 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-
-  /// 创建一个刷新按钮
-  // globalShortcut.register('CommandOrControl + R', () => {
-  //   mainWindow.reload();
-  // });
 }
 
 // This method will be called when Electron has finished

@@ -8,7 +8,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack",
     "pack": "electron-packager . --overwrite",
-    "pack-win32": "electron-packager ./ --platform=darwin-win32 --overwrite"
+    "pack-win32": "electron-packager ./ --platform=win32 --overwrite"
   },
   "build": {
     "appId": "com.tiannan.admin"
@@ -35,6 +35,8 @@
     "electron-reload": "^1.2.5",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",

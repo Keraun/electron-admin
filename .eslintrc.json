@@ -3,22 +3,44 @@
   "extends": [
     "eslint:recommended",
     "prettier",
+    "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:react/recommended"
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "env": {
     "node": true,
     "browser": true,
     "jest": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "prettier/prettier": [
       "error", 
       {
         "singleQuote": true, 
-        "no-console": "off",
         "semi": false
       }
-    ]
+    ],
+    "import/no-unresolved": "error",
+    "import/namespace": "error",
+    "import/default": "error",
+    "import/no-duplicates": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
   }
 }

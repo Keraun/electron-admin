@@ -1,12 +1,11 @@
 import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Button, Icon } from 'semantic-ui-react'
-
 export default class App extends React.PureComponent {
   constructor() {
     super()
     this.state = {
-      primary: 'Click Here'
+      primary: 'Click Here!'
     }
   }
 
