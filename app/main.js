@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const electron = require('electron')
-const { app, BrowserWindow, session } = electron
+const { app, BrowserWindow } = electron
 const path = require('path')
 const url = require('url')
 
@@ -25,14 +25,14 @@ function createWindow() {
     .catch(err => console.log('An error occurred: ', err))
 
   // 设置安全策略
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': ["default-src 'none'"]
-      }
-    })
-  })
+  // session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  //   callback({
+  //     responseHeaders: {
+  //       ...details.responseHeaders,
+  //       'Content-Security-Policy': ["default-src 'none'"]
+  //     }
+  //   })
+  // })
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
