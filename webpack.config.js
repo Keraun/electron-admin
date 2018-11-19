@@ -8,17 +8,23 @@ module.exports = {
     publicPath: 'app/',
     filename: 'render.js'
   },
+  devServer: {
+    hot: true
+  },
   module: {
     rules: [
       {
-        test: /.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: ['@babel/plugin-proposal-class-properties']
+              plugins: [
+                '@babel/plugin-proposal-class-properties',
+                'react-hot-loader/babel'
+              ]
             }
           }
         ]
@@ -48,6 +54,9 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development'
+    }),
+    new webpack.HotModuleReplacementPlugin({
+      multiStep: true
     })
   ]
 }
