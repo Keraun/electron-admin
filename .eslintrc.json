@@ -6,12 +6,14 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "plugin:promise/recommended"
   ],
   "env": {
     "node": true,
     "browser": true,
-    "jest": true
+    "jest": true,
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -31,8 +33,21 @@
     "import/no-unresolved": "error",
     "import/namespace": "error",
     "import/default": "error",
-    "import/no-duplicates": "error"
+    "import/no-duplicates": "error",
+    "promise/always-return": "error",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "warn",
+    "promise/no-promise-in-callback": "warn",
+    "promise/no-callback-in-promise": "warn",
+    "promise/avoid-new": "warn",
+    "promise/no-new-statics": "error",
+    "promise/no-return-in-finally": "warn",
+    "promise/valid-params": "warn"
   },
+  "plugins": ["promise", "import"],
   "settings": {
     "import/resolver": {
       "node": {

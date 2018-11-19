@@ -1,5 +1,5 @@
 const { join } = require('path')
-
+const webpack = require('webpack')
 module.exports = {
   entry: join(__dirname, 'app/renderer.jsx'),
   target: 'electron-renderer',
@@ -44,5 +44,10 @@ module.exports = {
         loader: 'eslint-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development'
+    })
+  ]
 }

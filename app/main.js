@@ -4,35 +4,26 @@ const { app, BrowserWindow } = electron
 const path = require('path')
 const url = require('url')
 
-// !提供HMR功能，在Production环境下得删除
-// ?是否可以优化
-const {
-  default: installExtension,
-  REACT_DEVELOPER_TOOLS,
-  REDUX_DEVTOOLS
-} = require('electron-devtools-installer')
+const installExtensions = async () => {
+  const installer = require('electron-devtools-installer')
+  const forceDownload = !!process.env.UPGRADE_EXTENSIONS
+  const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS']
 
-require('electron-reload')(__dirname)
+  return Promise.all(
+    extensions.map(name => installer.default(installer[name], forceDownload))
+  ).catch(console.log)
+}
 
-// Keep a global reference of the window object, if you don"t, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+require('electron-debug')()
 
-function createWindow() {
-  // !这段东西，在发布的时候要注释掉
-  installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS])
-    .then(name => console.log(`插件安装成功: ${name}`))
-    .catch(err => console.log('An error occurred: ', err))
+// 主window, 必须是全局的
+let mainWindow = null
 
-  // 设置安全策略
-  // session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  //   callback({
-  //     responseHeaders: {
-  //       ...details.responseHeaders,
-  //       'Content-Security-Policy': ["default-src 'none'"]
-  //     }
-  //   })
-  // })
+async function createWindow() {
+  // 加载tools
+  if (process.env.NODE_ENV === 'development') {
+    await installExtensions()
+  }
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -42,9 +33,6 @@ function createWindow() {
     center: true
   })
 
-  console.log(__dirname)
-
-  // and load the index.html of the app.
   mainWindow.loadURL(
     url.format({
       pathname: path.join(__dirname, './index.html'),
@@ -54,14 +42,8 @@ function createWindow() {
     })
   )
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
-
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   })
 }
@@ -87,8 +69,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-require('electron-debug')()
