@@ -38,6 +38,9 @@ flow-typed/npm/*
 #internals
 internals
 
+#configs
+configs
+
 # App packaged
 release
 app/main.prod.js

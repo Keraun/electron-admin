@@ -1,14 +1,14 @@
 // @flow
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
-import routes from '../constants/routes';
-import styles from './Home.css';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
+import routes from '../constants/routes'
+import styles from './Home.css'
 
-type Props = {};
+type Props = {}
 
 export default class Home extends Component<Props> {
-  props: Props;
+  props: Props
 
   render() {
     return (
@@ -18,6 +18,6 @@ export default class Home extends Component<Props> {
         <Button secondary>Secondary</Button>
         <Link to={routes.COUNTER}>to Counter</Link>
       </div>
-    );
+    )
   }
 }
