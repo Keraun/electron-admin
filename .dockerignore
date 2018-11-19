@@ -31,12 +31,8 @@ node_modules
 .DS_Store
 
 # flow-typed
-flow-typed
 flow-typed/npm/*
 !flow-typed/npm/module_vx.x.x.js
-
-#internals
-internals
 
 # App packaged
 release
@@ -53,8 +49,4 @@ main.js.map
 
 .idea
 npm-debug.log.*
-__snapshots__
-
-# Package.json
-package.json
-.travis.yml
+.*.dockerfile
