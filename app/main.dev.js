@@ -70,7 +70,7 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
-    height: 728
+    height: 1024
   })
 
   mainWindow.loadURL(`file://${__dirname}/app.html`)
@@ -85,7 +85,7 @@ app.on('ready', async () => {
       mainWindow.minimize()
     } else {
       mainWindow.show()
-      mainWindow.focus()
+      // mainWindow.focus()
     }
   })
 
