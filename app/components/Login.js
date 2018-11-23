@@ -13,6 +13,11 @@ import styles from './Login.scss'
 import routes from '../constants/routes'
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props)
+    console.log('--->', this.props)
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -56,7 +61,7 @@ export default class Login extends Component {
             </Form>
             <Message>
               没有账号?
-              <Link to={routes.HOME}>去注册</Link>
+              <Link to={routes.COUNTER}>去注册</Link>
             </Message>
           </Grid.Column>
         </Grid>
