@@ -1,25 +1,25 @@
-import { fromJS } from 'immtable'
+import { fromJS } from 'immutable'
 import typeToReducer from 'type-to-reducer'
 
 const USER_NAME_CHANGE = 'USER_NAME_CHANGE'
 const PASSWORD_CHANGE = 'PASSWORD_CHANGE'
 
-const initialState = {
-  input: '',
+const initialState = fromJS({
+  userName: '',
   loading: false
-}
+})
 
-const userNameChange = (input) => {
+export const userNameChange = (userName) => ({
   type: USER_NAME_CHANGE,
-  payload: input
-}
+  payload: userName
+})
 
 export default typeToReducer(
   {
     [USER_NAME_CHANGE]: (state, action) => {
       console.log('state--->', state)
       console.log('action--->', action)
-      return state.set('input', action.payload)
+      return state.set('userName', action.payload)
     }
   },
   initialState
