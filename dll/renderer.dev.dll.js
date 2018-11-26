@@ -147,6 +147,18 @@ eval("module.exports = history;\n\n//# sourceURL=webpack://renderer/external_%22
 
 /***/ }),
 
+/***/ "immutable":
+/*!****************************!*\
+  !*** external "immutable" ***!
+  \****************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = immutable;\n\n//# sourceURL=webpack://renderer/external_%22immutable%22?");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
@@ -276,6 +288,18 @@ eval("module.exports = semantic-ui-react;\n\n//# sourceURL=webpack://renderer/ex
 /***/ (function(module, exports) {
 
 eval("module.exports = source-map-support;\n\n//# sourceURL=webpack://renderer/external_%22source-map-support%22?");
+
+/***/ }),
+
+/***/ "type-to-reducer":
+/*!**********************************!*\
+  !*** external "type-to-reducer" ***!
+  \**********************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = type-to-reducer;\n\n//# sourceURL=webpack://renderer/external_%22type-to-reducer%22?");
 
 /***/ })
 

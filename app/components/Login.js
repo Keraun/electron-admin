@@ -18,6 +18,11 @@ export default class Login extends Component {
     console.log('--->', this.props)
   }
 
+  onChange = (event, data) => {
+    console.log('event--->', event)
+    console.log('--->', data)
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -46,6 +51,7 @@ export default class Login extends Component {
                   icon="user"
                   iconPosition="left"
                   placeholder="请输入姓名"
+                  onChange={this.onChange}
                 />
                 <Form.Input
                   icon="lock"

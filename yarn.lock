@@ -6782,6 +6782,11 @@ immutable@^3.8.1:
   resolved "https://registry.npmjs.org/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
   integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
 
+immutable@^4.0.0-rc.12:
+  version "4.0.0-rc.12"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0-rc.12.tgz#ca59a7e4c19ae8d9bf74a97bdf0f6e2f2a5d0217"
+  integrity sha512-0M2XxkZLx/mi3t8NVwIm1g8nHoEmM9p9UBl/G9k4+hm0kBgOVdMV/B3CY5dQ8qG8qc80NN4gDV4HQv6FTJ5q7A==
+
 import-lazy@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
@@ -12876,6 +12881,11 @@ type-is@~1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
+
+type-to-reducer@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/type-to-reducer/-/type-to-reducer-1.1.0.tgz#070f122ff1fe0c96c9787237b64be32777a7d71d"
+  integrity sha1-Bw8SL/H+DJbJeHI3tkvjJ3en1x0=
 
 typedarray@^0.0.6:
   version "0.0.6"
