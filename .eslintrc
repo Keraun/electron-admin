@@ -62,6 +62,7 @@
       }
     ],
     "react/jsx-no-bind": "off",
+    "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": [
       "error",
       { "extensions": [".js", ".jsx"] }

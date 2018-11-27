@@ -84,8 +84,9 @@ app.on('ready', async () => {
     if (process.env.START_MINIMIZED) {
       mainWindow.minimize()
     } else {
-      mainWindow.show()
-      // mainWindow.focus()
+      // 这个方法不会自动focus
+      // !show方法会自动focus
+      mainWindow.showInactive()
     }
   })
 
@@ -98,5 +99,5 @@ app.on('ready', async () => {
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  new AppUpdater()
 })

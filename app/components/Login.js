@@ -9,18 +9,26 @@ import {
   Message
 } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import styles from './Login.scss'
 import routes from '../constants/routes'
 
 export default class Login extends Component {
-  constructor(props) {
-    super(props)
-    console.log('--->', this.props)
+  static propTypes = {
+    userName: PropTypes.string,
+    password: PropTypes.string,
+    userNameChange: PropTypes.func.isRequired,
+    passwordChange: PropTypes.func.isRequired
   }
 
-  onChange = (event, data) => {
-    console.log('event--->', event)
-    console.log('--->', data)
+  static defaultProps = {
+    userName: '',
+    password: ''
+  }
+
+  submitValid() {
+    const { userName, password } = this.props
+    return userName.length >= 2 && password.length >= 6
   }
 
   render() {
@@ -51,17 +59,23 @@ export default class Login extends Component {
                   icon="user"
                   iconPosition="left"
                   placeholder="请输入姓名"
-                  onChange={this.onChange}
+                  onChange={this.props.userNameChange}
                 />
                 <Form.Input
                   icon="lock"
                   iconPosition="left"
                   placeholder="请输入密码"
+                  onChange={this.props.passwordChange}
                   type="password"
                 />
               </Segment>
 
-              <Button color="teal" fluid size="large" disabled>
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                disabled={this.submitValid()}
+              >
                 登录
               </Button>
             </Form>
