@@ -17,6 +17,8 @@ export default class Login extends Component {
   static propTypes = {
     userName: PropTypes.string,
     password: PropTypes.string,
+    isLoading: PropTypes.bool.isRequired,
+    loginRequest: PropTypes.func.isRequired,
     userNameChange: PropTypes.func.isRequired,
     passwordChange: PropTypes.func.isRequired
   }
@@ -27,11 +29,12 @@ export default class Login extends Component {
   }
 
   submitValid() {
-    const { userName, password } = this.props
-    return userName.length >= 2 && password.length >= 6
+    const { userName, password, isLoading } = this.props
+    return userName.length < 2 || password.length < 6 || isLoading
   }
 
   render() {
+    console.log('this.props--->', this.props)
     return (
       <div className={styles.container}>
         <Grid
@@ -69,12 +72,13 @@ export default class Login extends Component {
                   type="password"
                 />
               </Segment>
-
               <Button
                 color="teal"
                 fluid
                 size="large"
                 disabled={this.submitValid()}
+                onClick={this.props.loginRequest}
+                loading={this.props.isLoading}
               >
                 登录
               </Button>
