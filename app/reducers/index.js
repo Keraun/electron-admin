@@ -1,7 +1,6 @@
 // @flow
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
-import counter from './counter'
 import login from '../actions/login'
 
 export default function createRootReducer(history: {}) {
@@ -10,7 +9,6 @@ export default function createRootReducer(history: {}) {
   return connectRouter(history)(
     combineReducers({
       router: routerReducer,
-      counter,
       login
     })
   )

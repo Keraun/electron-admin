@@ -28,11 +28,8 @@ export const submitLoading = () => ({
 
 export default typeToReducer(
   {
-    [USER_NAME_CHANGE]: (state, action) => {
-      console.log('state--->', state)
-      console.log('action--->', action)
-      return state.set('userName', action.payload)
-    },
+    [USER_NAME_CHANGE]: (state, action) =>
+      state.set('userName', action.payload),
     [PASSWORD_CHANGE]: (state, action) => state.set('password', action.payload)
   },
   initialState
