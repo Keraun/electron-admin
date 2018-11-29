@@ -8,10 +8,10 @@ import {
   Form,
   Message
 } from 'semantic-ui-react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styles from './Login.scss'
-// import routes from '../constants/routes'
+import routes from '../../constants/routes'
 
 export default class Login extends Component {
   static propTypes = {
@@ -85,7 +85,7 @@ export default class Login extends Component {
             </Form>
             <Message>
               没有账号?
-              {/* <Link to={routes.COUNTER}>去注册</Link> */}
+              <Link to={routes.REGISTER}>去注册</Link>
             </Message>
           </Grid.Column>
         </Grid>

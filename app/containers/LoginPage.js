@@ -4,7 +4,6 @@ import Login from '../components/login/Login'
 import { userNameChange, passwordChange, loginRequest } from '../actions/login'
 
 const mapStateToProps = state => {
-  console.log('mapStateToProps --->', state)
   const { login } = state
   return {
     userName: login.get('userName'),

@@ -9,6 +9,7 @@ body {
   flex-direction: row;
   color: black;
   height: 100vh;
+  min-width: 1000px;
   background-color: white;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
