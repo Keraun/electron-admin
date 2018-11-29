@@ -34,7 +34,6 @@ export default class Login extends Component {
   }
 
   render() {
-    console.log('this.props--->', this.props)
     return (
       <div className={styles.container}>
         <Grid

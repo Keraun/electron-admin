@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Container } from 'semantic-ui-react'
+import { Icon, Container, Grid, Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 export default class Register extends React.PureComponent {
@@ -16,10 +16,13 @@ export default class Register extends React.PureComponent {
       <Container textAlign="left" fluid>
         <Icon
           name="arrow left"
-          size="big"
+          size="large"
           color="teal"
           onClick={this.backAction}
         />
+        <Grid textAlign="center" verticalAlign="middle">
+          <Segment>ssss</Segment>
+        </Grid>
       </Container>
     )
   }
