@@ -16,7 +16,10 @@ import { spawn, execSync } from 'child_process';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 
-CheckNodeEnv('development');
+// !这个地方打开会导致import时候resolverbug
+// !而这个bug会导致整个eslint break
+// !!! 切勿打开...
+// CheckNodeEnv('development');
 
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;

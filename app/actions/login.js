@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import typeToReducer from 'type-to-reducer'
+import { push } from 'connected-react-router'
 
 const USER_NAME_CHANGE = 'USER_NAME_CHANGE'
 const PASSWORD_CHANGE = 'PASSWORD_CHANGE'
@@ -43,6 +44,7 @@ export const loginRequest = () => dispatch => {
   setTimeout(() => {
     dispatch(loginSuccess('1239540xxxsfd'))
     dispatch(submitLoading(false))
+    dispatch(push('/home'))
   }, 3000)
 }
 
