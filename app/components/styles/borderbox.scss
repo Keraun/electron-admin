@@ -1,0 +1,7 @@
+.margin-#{$num} {
+  margin: $num * 1rem;
+}
+
+.margin-left-#{$num} {
+  margin-left: $num * 1rem;
+}

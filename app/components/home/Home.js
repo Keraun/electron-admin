@@ -5,7 +5,9 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div>
-        <Button secondary>Home!!!!</Button>
+        <Button secondary className="margin-left-2rem">
+          Home!!!!
+        </Button>
       </div>
     )
   }
