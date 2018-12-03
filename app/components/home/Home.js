@@ -5,9 +5,11 @@ import {
   Menu,
   Grid,
   MenuItem,
-  Divider
+  Divider,
+  Segment
 } from 'semantic-ui-react'
 import NavigationBar from './NavigationBar'
+import './Home.scss'
 
 class Home extends React.PureComponent {
   state = {
@@ -22,20 +24,14 @@ class Home extends React.PureComponent {
     const { activeItem } = this.state
     return (
       <Container fluid>
-        <NavigationBar style={{ padding: 10 }} />
-        <Grid columns={3}>
-          <Menu secondary vertical>
-            <MenuItem
-              name="Home"
-              active={activeItem === 'Home'}
-              onClick={this.menuItemClick}
-              icon="add"
-            />
-            <Menu.Item>
-              <Button>Message</Button>
-            </Menu.Item>
-          </Menu>
-          <Divider vertical />
+        <NavigationBar />
+        <Grid
+          columns={3}
+          style={{ height: '100%' }}
+          verticalAlign="middle"
+          centered
+        >
+          <Segment>test</Segment>
         </Grid>
       </Container>
     )

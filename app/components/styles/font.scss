@@ -1,0 +1,11 @@
+@for $i from 12 through 50 {
+  .fs-#{$i} {
+    font-size: $i * 1px;
+    color: red;
+  }
+}
+
+.fs30 {
+  font-size: 30px;
+  color: red;
+}

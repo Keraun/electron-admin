@@ -1,7 +1,13 @@
+
 .flex {
   display: flex;
 }
 
-.flex- {
-  flex: $num;
+@for $i from 1 through 5 {
+  .flex-#{$i} {
+    @extend .flex;
+
+    flex: $i * 1;
+  }
 }
+
