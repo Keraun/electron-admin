@@ -20,7 +20,7 @@ class Home extends React.PureComponent {
   }
 
   render() {
-    const { activeItem } = this.state
+    // const { activeItem } = this.state
     return (
       <Container fluid>
         <NavigationBar />
