@@ -21,7 +21,7 @@ export default class Register extends React.PureComponent {
           onClick={this.backAction}
         />
         <Grid textAlign="center" verticalAlign="middle">
-          <Segment>ssss</Segment>
+          <Segment>sssss</Segment>
         </Grid>
       </Container>
     )
